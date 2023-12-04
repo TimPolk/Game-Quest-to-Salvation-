@@ -1,36 +1,26 @@
-class Knight:
-    pass
-
-
-class Archer:
-    pass
-
-
-class Mage:
-    pass
-
-
-class Assassin:
-    pass
-
-
+from Jobs import Knight
+from Jobs import Archer
+from Jobs import Mage
+from Jobs import Assassin
 class Character:
     def __int__(self, Job, Level, Weapon, Skills):
         self.Job = Job
         self.Level = Level
         self.Weapon = Weapon
         self.Skills = Skills
-    
+
     def character_job(self):
-        if self.Job == Knight:
-            pass
-        elif self.Job == Archer:
-            pass
-        elif self.Job == Mage:
-            pass
-        elif self.Job == Assassin:
-            pass
-            
+        if self.Job == "Knight":
+            self.job = Knight
+
+        if self.Job == "Archer":
+            self.job = Archer
+
+        if self.Job == "Mage":
+            self.job = Mage
+
+        if self.Job == "Assassin":
+            self.job = Assassin
 
     def level_up(self, Level, exp):
         if Level == 1:
