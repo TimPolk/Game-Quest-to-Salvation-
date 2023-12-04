@@ -2,6 +2,7 @@ from Jobs import Knight
 from Jobs import Archer
 from Jobs import Mage
 from Jobs import Assassin
+#wanted to create a generic structure for a character
 class Character:
     def __int__(self, Job, Level, Weapon, Skills):
         self.Job = Job
