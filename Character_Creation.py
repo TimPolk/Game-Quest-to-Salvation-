@@ -4,7 +4,9 @@ from Jobs import Mage
 from Jobs import Assassin
 #wanted to create a generic structure for a character
 class Character:
-    def __int__(self, Job, Level, Weapon, Skills):
+    exp = 0
+    def __int__(self, Name, Job, Level, Weapon, Skills):
+        self.Name = Name
         self.Job = Job
         self.Level = Level
         self.Weapon = Weapon
@@ -51,7 +53,8 @@ class Character:
         elif Level == 9:
             if exp == 45:
                 Level = 10
-    
-    
+
+    def exp_up(self, exp):
+        pass
         
         

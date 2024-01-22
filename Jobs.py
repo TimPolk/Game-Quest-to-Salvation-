@@ -27,18 +27,18 @@ class Archer(Character):
         self.aura = aura
 
 class Mage(Character):
-    def __init__(self, hp, str, agi, mana, intelligence):
+    def __init__(self, hp, str, agi, mana, intel):
         self.hp = hp
         self.str = str
         self.agi = agi
         self.mana = mana
-        self.intelligence = intelligence
+        self.intel = intel
 
 class Assassin(Character):
-    def __init__(self, hp, str, agi, mana, stealth):
+    def __init__(self, hp, str, agi, mana, stlth):
         self.hp = hp
         self.str = str
         self.agi = agi
         self.mana = mana
-        self.stealth = stealth
+        self.stlth = stlth
 
