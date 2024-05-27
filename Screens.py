@@ -213,9 +213,9 @@ def dia_screen(screen, Text, difficulty):
     text_box_height = 85
 
     screen.fill(black_color)
-    #render the font of text
+    # render the font of text
     text_font = pygame.font.Font(None, 40)
-    #text box
+    # text box
     rect = (screen_length / 2 - 500, screen_height / 2 + 300, text_box_length, text_box_height)
     text_box = pygame.draw.rect(screen, white_color, rect, width=3)
 
@@ -223,7 +223,7 @@ def dia_screen(screen, Text, difficulty):
     speed = 1
     done = False
     run = True
-    #the cool way text works
+    # the cool way text works
     while run:
         timer.tick(60)
         for event in pygame.event.get():
@@ -239,43 +239,45 @@ def dia_screen(screen, Text, difficulty):
                 pygame.quit()
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
-                    #box for the paused menu
+                    # box for the paused menu
                     pygame.draw.rect(screen, white_color, (screen_length / 3 + 50, screen_height / 6, 400, 550), width=5)
 
-                    #game paused letters
+                    # game paused letters
                     paused_font = pygame.font.Font(None, 65)
                     paused_surface = paused_font.render("Game Paused", 0, white_color)
                     paused_rectangle = paused_surface.get_rect(center=(screen_length / 3 + 250, screen_height / 6 + 50))
                     screen.blit(paused_surface, paused_rectangle)
 
-                    #restart button
+                    # restart button
                     restart_font = pygame.font.Font(None, 55)
                     restart_surface = restart_font.render("Restart Game", 0, white_color)
                     restart_rectangle = restart_surface.get_rect(center=(screen_length / 3 + 250, screen_height / 6 + 175))
                     restart_button = screen.blit(restart_surface, restart_rectangle)
 
-                    #settings_button
+                    # settings_button
                     settings_font = pygame.font.Font(None, 55)
                     settings_surface = settings_font.render("Settings", 0, white_color)
                     settings_rectangle = settings_surface.get_rect(center=(screen_length / 3 + 250, screen_height / 6 + 275))
                     settings_button = screen.blit(settings_surface, settings_rectangle)
 
-                    #quit game button
+                    # quit game button
                     quit_font = pygame.font.Font(None, 55)
                     quit_surface = quit_font.render("Quit Game", 0, white_color)
                     quit_rectangle = quit_surface.get_rect(center=(screen_length / 3 + 250, screen_height / 6 + 375))
                     quit_button = screen.blit(quit_surface, quit_rectangle)
+
+                    pygame.display.flip()
+
+
                     for action in pygame.event.get():
                         if action.type == pygame.MOUSEBUTTONDOWN:
-                            if quit_button.collidepoint(pygame.mouse.get_pos()):
+                            if quit_button.collidepoint(action.pos):
                                 return "Quit"
-                            elif settings_button.collidepoint(pygame.mouse.get_pos()):
+                            elif settings_button.collidepoint(action.pos):
                                 return "Settings"
-                            elif restart_button.collidepoint(pygame.mouse.get_pos()):
+                            elif restart_button.collidepoint(action.pos):
                                 return difficulty
-
                         elif action.type == pygame.KEYDOWN:
                             if action.key == pygame.K_BACKSPACE:
                                 return difficulty
-                pygame.display.flip()
             
